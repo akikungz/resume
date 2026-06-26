@@ -69,8 +69,8 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   name: "Thitipong Tapianthong",
-  title: "Network Engineer",
-  avatarUrl: "https://scontent.fbkk13-1.fna.fbcdn.net/v/t39.30808-6/277530061_1651949845153059_1882076327746208940_n.jpg?stp=dst-jpg_tt6&cstp=mx960x948&ctp=s960x948&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=LRAl6BMbA5sQ7kNvwHHkKmX&_nc_oc=Ado1O2pwD3c_DMtqnJLfEDsGaO_3rLSmDRBqbBWX07vSehy0wulThURgtXehoU5IC99ff4Dy2FZlu0oRf75-bCep&_nc_zt=23&_nc_ht=scontent.fbkk13-1.fna&_nc_gid=KQpE88TVGjmLvlOsFraGTQ&_nc_ss=7b2a8&oh=00_Af-XT53nmK4vqmiEfX9TSEk2tkrE9Lrdom4DzThKCxjt3Q&oe=6A43A73B",
+  title: "Programmer / Network Engineer",
+  avatarUrl: "",
   email: "thitipong.t@proton.me",
   phone: "(+66) 098-372-1725",
   location: "Prachinburi, Thailand",
@@ -81,6 +81,11 @@ export const resumeData: ResumeData = {
       url: "https://github.com/akikungz",
       label: "GitHub"
     },
+    {
+      platform: "linkedin",
+      url: "https://www.linkedin.com/in/thitipong-tapianthong-67b168265",
+      label: "LinkedIn"
+    }
   ],
   experience: [
     {
@@ -96,6 +101,11 @@ export const resumeData: ResumeData = {
         "Forcepoint",
         "Sophos",
         "PaloAlto",
+        "TCP/IP",
+        "Troubleshooting",
+        "SD-WAN",
+        "Firewall",
+        "Data Loss Prevention",
       ],
     },
     {
@@ -126,7 +136,7 @@ export const resumeData: ResumeData = {
     {
       title: "Cluster-Based Platform for Supporting Teaching and Academic Activities in the Department of Information Technology",
       period: "2025",
-      description: "Create a frontend for Cloud-Based Platform analyzing detailed data on satisfaction and trust in hospitals.",
+      description: "A virtual cluster platform designed to simplify and automate Linux VM provisioning for academic coursework and projects. It features an RBAC-enabled web interface for students and faculty, an API service for user and virtual machine orchestration, and a VM management backend interfacing with Proxmox to optimize server resource utilization.",
       technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Bun", "ElysiaJS", "PostgreSQL", "Redis", "Docker", "Kubernetes", "Proxmox", "Nginx"],
     }
   ],
@@ -145,7 +155,7 @@ export const resumeData: ResumeData = {
     },
     {
       category: "Network",
-      skills: ["TCP/IP", "VLAN", "Subnetting", "DHCP", "DNS", "Routing", "Troubleshooting", "Wireless", "Firewall", "SD-WAN", "VPN", "Cisco", "Forcepoint", "Sophos", "PaloAlto"]
+      skills: ["TCP/IP", "VLAN", "Subnetting", "DHCP", "DNS", "Routing", "Troubleshooting", "Wireless", "Firewall", "SD-WAN", "VPN", "Data Loss Prevention", "Cisco", "Forcepoint", "Sophos", "PaloAlto"]
     },
   ],
   certifications: [
@@ -154,11 +164,11 @@ export const resumeData: ResumeData = {
   languages: [
     {
       language: "Thai",
-      proficiency: "Native Proficiency"
+      proficiency: "Native"
     },
     {
       language: "English",
-      proficiency: "Conversational"
+      proficiency: "Basic"
     }
   ]
 };

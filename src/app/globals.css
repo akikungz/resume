@@ -117,7 +117,9 @@ body {
     color: #4b5563;
   }
   
-  /* Skip link printing for social icons and emails where the text is already obvious or redundant */
+  /* Skip link printing for social icons, emails, phones and redundant links */
+  a[href^="mailto:"]::after,
+  a[href^="tel:"]::after,
   a.print-no-link-attr::after {
     content: "" !important;
   }

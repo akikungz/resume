@@ -173,7 +173,7 @@ export default function Home() {
                         href={resumeData.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-accent transition-colors flex items-center gap-1 group"
+                        className="hover:text-accent transition-colors flex items-center gap-1 group print-no-link-attr"
                       >
                         {resumeData.website.replace(/^https?:\/\//, "")}
                         <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity no-print" />
@@ -183,7 +183,7 @@ export default function Home() {
                 </div>
 
                 {/* Social Badges */}
-                <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start print:mt-4 print:gap-1.5">
+                <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start print:mt-4 print:gap-1.5 no-print">
                   {resumeData.socials.map((social) => (
                     <a
                       key={social.platform}
@@ -255,7 +255,7 @@ export default function Home() {
                             href={cert.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-accent transition-colors inline-flex items-center gap-1 group"
+                            className="hover:text-accent transition-colors inline-flex items-center gap-1 group print-no-link-attr"
                           >
                             {cert.title}
                             <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity no-print" />
@@ -397,7 +397,7 @@ export default function Home() {
                   )}
                 </div>
 
-                <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 print:grid-cols-1 print:gap-4">
+                <div className="mt-6 grid grid-cols-1 gap-6 print:grid-cols-1 print:gap-4">
                   {filteredProjects.map((project, idx) => (
                     <div
                       key={`${project.title}-${idx}`}
