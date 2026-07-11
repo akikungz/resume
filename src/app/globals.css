@@ -67,6 +67,7 @@ body {
     color: #000000 !important;
     font-size: 11pt !important;
     line-height: 1.4 !important;
+    font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif !important;
   }
 
   /* Force light theme colors on all elements for printing */
@@ -79,6 +80,20 @@ body {
     --accent-muted: #f3f4f6 !important;
     --muted: #4b5563 !important;
     --border: #e5e7eb !important;
+    --font-sans: Arial, Helvetica, "Nimbus Sans L", sans-serif !important;
+    --font-geist-sans: Arial, Helvetica, "Nimbus Sans L", sans-serif !important;
+    --font-geist-mono: Courier New, Courier, monospace !important;
+  }
+
+  /* Disable transitions, animations, filters, shadows to prevent rasterization */
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
   }
 
   @page {

@@ -18,6 +18,8 @@ import {
   Printer,
   ExternalLink,
   X,
+  FileJson,
+  FileText,
 } from "lucide-react";
 import { resumeData } from "@/data/resume";
 
@@ -51,6 +53,107 @@ export default function Home() {
 
   const handlePrint = () => {
     window.print();
+  };
+
+  const handleDownloadJSON = () => {
+    const dataStr = JSON.stringify(resumeData, null, 2);
+    const blob = new Blob([dataStr], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${resumeData.name.replace(/\s+/g, "_")}_Resume.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const handleDownloadTXT = () => {
+    let txt = `${resumeData.name.toUpperCase()}\n`;
+    txt += `${resumeData.title}\n`;
+    txt += `${resumeData.location} | ${resumeData.phone} | ${resumeData.email}\n`;
+    if (resumeData.website) {
+      txt += `Website: ${resumeData.website}\n`;
+    }
+    txt += `\n${"=".repeat(80)}\n\n`;
+
+    if (resumeData.summary) {
+      txt += `PROFESSIONAL SUMMARY\n`;
+      txt += `${"-".repeat(20)}\n`;
+      txt += `${resumeData.summary}\n\n`;
+    }
+
+    txt += `WORK EXPERIENCE\n`;
+    txt += `${"-".repeat(15)}\n`;
+    for (const exp of resumeData.experience) {
+      txt += `${exp.role} | ${exp.company}\n`;
+      txt += `${exp.period} | ${exp.location}\n`;
+      for (const bullet of exp.description) {
+        txt += `- ${bullet}\n`;
+      }
+      txt += `Technologies: ${exp.technologies.join(", ")}\n\n`;
+    }
+
+    if (resumeData.projects && resumeData.projects.length > 0) {
+      txt += `PROJECTS SHOWCASE\n`;
+      txt += `${"-".repeat(17)}\n`;
+      for (const proj of resumeData.projects) {
+        txt += `${proj.title}${proj.role ? ` - ${proj.role}` : ""}\n`;
+        txt += `${proj.period}\n`;
+        txt += `${proj.description}\n`;
+        txt += `Technologies: ${proj.technologies.join(", ")}\n`;
+        if (proj.githubUrl) txt += `GitHub: ${proj.githubUrl}\n`;
+        if (proj.liveUrl) txt += `Live Demo: ${proj.liveUrl}\n`;
+        txt += `\n`;
+      }
+    }
+
+    txt += `EDUCATION\n`;
+    txt += `${"-".repeat(9)}\n`;
+    for (const edu of resumeData.education) {
+      txt += `${edu.degree}\n`;
+      txt += `${edu.institution} | ${edu.period} | ${edu.location}\n`;
+      if (edu.description) {
+        txt += `${edu.description}\n`;
+      }
+      txt += `\n`;
+    }
+
+    txt += `SKILLS\n`;
+    txt += `${"-".repeat(6)}\n`;
+    for (const cat of resumeData.skills) {
+      txt += `${cat.category}: ${cat.skills.join(", ")}\n`;
+    }
+    txt += `\n`;
+
+    if (resumeData.certifications && resumeData.certifications.length > 0) {
+      txt += `CERTIFICATIONS\n`;
+      txt += `${"-".repeat(14)}\n`;
+      for (const cert of resumeData.certifications) {
+        txt += `${cert.title} - ${cert.issuer} (${cert.date})\n`;
+        if (cert.url) txt += `Credential: ${cert.url}\n`;
+      }
+      txt += `\n`;
+    }
+
+    if (resumeData.languages && resumeData.languages.length > 0) {
+      txt += `LANGUAGES\n`;
+      txt += `${"-".repeat(9)}\n`;
+      for (const lang of resumeData.languages) {
+        txt += `${lang.language} (${lang.proficiency})\n`;
+      }
+      txt += `\n`;
+    }
+
+    const blob = new Blob([txt], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${resumeData.name.replace(/\s+/g, "_")}_Resume.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   const getSocialIcon = (platform: string) => {
@@ -119,6 +222,22 @@ export default function Home() {
             >
               <Printer className="h-4.5 w-4.5" />
               <span className="hidden sm:inline">Print / Save PDF</span>
+            </button>
+            <button
+              onClick={handleDownloadJSON}
+              className="flex h-9 gap-2 items-center justify-center rounded-lg border border-border bg-card-bg text-foreground px-3 text-sm font-medium transition-all hover:bg-border/30 hover:scale-105 active:scale-95 shadow-xs"
+              title="Download JSON (Machine Readable)"
+            >
+              <FileJson className="h-4.5 w-4.5 text-accent" />
+              <span className="hidden md:inline">JSON</span>
+            </button>
+            <button
+              onClick={handleDownloadTXT}
+              className="flex h-9 gap-2 items-center justify-center rounded-lg border border-border bg-card-bg text-foreground px-3 text-sm font-medium transition-all hover:bg-border/30 hover:scale-105 active:scale-95 shadow-xs"
+              title="Download TXT (Plain Text)"
+            >
+              <FileText className="h-4.5 w-4.5 text-accent" />
+              <span className="hidden md:inline">TXT</span>
             </button>
           </div>
         </div>

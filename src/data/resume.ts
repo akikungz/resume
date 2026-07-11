@@ -1,5 +1,5 @@
 export interface SocialLink {
-  platform: 'github' | 'linkedin' | 'twitter' | 'website' | 'email' | string;
+  platform: "github" | "linkedin" | "twitter" | "website" | "email" | string;
   url: string;
   label: string;
 }
@@ -74,18 +74,20 @@ export const resumeData: ResumeData = {
   email: "thitipong.t@proton.me",
   phone: "(+66) 098-372-1725",
   location: "Prachinburi, Thailand",
-  summary: "Recent graduate in Network Engineering with expertise spanning programming, network administration, and virtualization. Characterized by a strong ability to adapt to new technologies, I am committed to contributing to robust and efficient IT infrastructure solutions.",
+  website: "https://resume.akikungz.uk",
+  summary:
+    "Recent graduate in Network Engineering with expertise spanning programming, network administration, and virtualization. Characterized by a strong ability to adapt to new technologies, I am committed to contributing to robust and efficient IT infrastructure solutions.",
   socials: [
     {
       platform: "github",
       url: "https://github.com/akikungz",
-      label: "GitHub"
+      label: "GitHub",
     },
     {
       platform: "linkedin",
       url: "https://www.linkedin.com/in/thitipong-tapianthong-67b168265",
-      label: "LinkedIn"
-    }
+      label: "LinkedIn",
+    },
   ],
   experience: [
     {
@@ -117,58 +119,104 @@ export const resumeData: ResumeData = {
         "Create a frontend for HAI Dashboard for analyzing detailed information about hospitals.",
         "Create a frontend for HA-PE for analyzing detailed data on satisfaction and trust in hospitals.",
       ],
-      technologies: [
-        "React",
-        "Tailwind CSS",
-        "TypeScript",
-      ]
-    }
+      technologies: ["React", "Tailwind CSS", "TypeScript"],
+    },
   ],
   education: [
     {
       institution: "King Mongkut's University of Technology North Bangkok",
       degree: "Bachelor of Engineering in Information and Network Engineering",
       period: "2022 - 2025",
-      location: "Prachinburi, Thailand"
-    }
+      location: "Prachinburi, Thailand",
+    },
   ],
   projects: [
     {
-      title: "Cluster-Based Platform for Supporting Teaching and Academic Activities in the Department of Information Technology",
+      title:
+        "Cluster-Based Platform for Supporting Teaching and Academic Activities in the Department of Information Technology",
       period: "2025",
-      description: "A virtual cluster platform designed to simplify and automate Linux VM provisioning for academic coursework and projects. It features an RBAC-enabled web interface for students and faculty, an API service for user and virtual machine orchestration, and a VM management backend interfacing with Proxmox to optimize server resource utilization.",
-      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Bun", "ElysiaJS", "PostgreSQL", "Redis", "Docker", "Kubernetes", "Proxmox", "Nginx"],
-    }
+      description:
+        "A virtual cluster platform designed to simplify and automate Linux VM provisioning for academic coursework and projects. It features an RBAC-enabled web interface for students and faculty, an API service for user and virtual machine orchestration, and a VM management backend interfacing with Proxmox to optimize server resource utilization.",
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "Bun",
+        "ElysiaJS",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Kubernetes",
+        "Proxmox",
+        "Nginx",
+      ],
+    },
   ],
   skills: [
     {
       category: "Languages",
-      skills: ["Python", "TypeScript", "JavaScript", "HTML & CSS"]
+      skills: ["Python", "TypeScript", "JavaScript", "HTML & CSS"],
     },
     {
       category: "Frameworks & Libraries",
-      skills: ["React", "Next.js (App Router)", "Node.js", "Express", "ElysiaJS", "Tailwind CSS", "Prisma", "Bun"]
+      skills: [
+        "React",
+        "Next.js (App Router)",
+        "Node.js",
+        "Express",
+        "ElysiaJS",
+        "Tailwind CSS",
+        "Prisma",
+        "Bun",
+      ],
     },
     {
       category: "Infrastructure & Tools",
-      skills: ["PostgreSQL", "Redis", "Docker", "Git", "GitHub Actions", "Proxmox", "Linux", "Kubernetes", "VMware ESXi", "Nginx"]
+      skills: [
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "Git",
+        "GitHub Actions",
+        "Proxmox",
+        "Linux",
+        "Kubernetes",
+        "VMware ESXi",
+        "Nginx",
+      ],
     },
     {
       category: "Network",
-      skills: ["TCP/IP", "VLAN", "Subnetting", "DHCP", "DNS", "Routing", "Troubleshooting", "Wireless", "Firewall", "SD-WAN", "VPN", "Data Loss Prevention", "Cisco", "Forcepoint", "Sophos", "PaloAlto"]
+      skills: [
+        "TCP/IP",
+        "VLAN",
+        "Subnetting",
+        "DHCP",
+        "DNS",
+        "Routing",
+        "Troubleshooting",
+        "Wireless",
+        "Firewall",
+        "SD-WAN",
+        "VPN",
+        "Data Loss Prevention",
+        "Cisco",
+        "Forcepoint",
+        "Sophos",
+        "PaloAlto",
+      ],
     },
   ],
-  certifications: [
-
-  ],
+  certifications: [],
   languages: [
     {
       language: "Thai",
-      proficiency: "Native"
+      proficiency: "Native",
     },
     {
       language: "English",
-      proficiency: "Basic"
-    }
-  ]
+      proficiency: "Basic",
+    },
+  ],
 };
