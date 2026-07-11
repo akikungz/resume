@@ -17,7 +17,7 @@ import {
   Sun,
   Printer,
   ExternalLink,
-  X
+  X,
 } from "lucide-react";
 import { resumeData } from "@/data/resume";
 
@@ -34,7 +34,9 @@ export default function Home() {
       setTheme(savedTheme);
       document.documentElement.classList.toggle("dark", savedTheme === "dark");
     } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
       setTheme(prefersDark ? "dark" : "light");
       document.documentElement.classList.toggle("dark", prefersDark);
     }
@@ -104,7 +106,11 @@ export default function Home() {
               aria-label="Toggle Dark Mode"
               title="Toggle Dark Mode"
             >
-              {theme === "light" ? <Moon className="h-4.5 w-4.5" /> : <Sun className="h-4.5 w-4.5" />}
+              {theme === "light" ? (
+                <Moon className="h-4.5 w-4.5" />
+              ) : (
+                <Sun className="h-4.5 w-4.5" />
+              )}
             </button>
             <button
               onClick={handlePrint}
@@ -121,10 +127,8 @@ export default function Home() {
       {/* Main Resume Container */}
       <main className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:py-16 print:py-0 print:px-0">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 print:grid-cols-12 print:gap-6">
-
           {/* LEFT COLUMN: Sidebar (Bio, Info, Skills, Languages, Certs) */}
           <div className="lg:col-span-4 print:col-span-4 space-y-8 print:space-y-6">
-
             {/* Profile Intro Card */}
             <div className="rounded-xl border border-card-border bg-card-bg p-6 print:p-0 print:border-none print:bg-transparent shadow-xs print-no-shadow print-no-border">
               <div className="flex flex-col items-center text-center lg:items-start lg:text-left print:items-start print:text-left">
@@ -133,10 +137,10 @@ export default function Home() {
                   <img
                     src={resumeData.avatarUrl}
                     alt={resumeData.name}
-                    className="h-24 w-24 rounded-full object-cover border-2 border-accent shadow-md print:h-16 print:w-16 print:shadow-none"
+                    className="h-32 w-32 rounded-full object-cover border-2 border-accent shadow-md print:h-16 print:w-16 print:shadow-none"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-2xl font-bold text-white shadow-md sm:h-24 sm:w-24 print:h-16 print:w-16 print:shadow-none select-none">
+                  <div className="flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-2xl font-bold text-white shadow-md sm:h-24 sm:w-24 print:h-16 print:w-16 print:shadow-none select-none">
                     {initials}
                   </div>
                 )}
@@ -152,13 +156,19 @@ export default function Home() {
                 <div className="mt-6 w-full space-y-3 border-t border-border pt-6 text-sm text-muted print:mt-4 print:pt-4 print:space-y-2">
                   <div className="flex items-center gap-3 justify-center lg:justify-start print:justify-start">
                     <Mail className="h-4 w-4 shrink-0 text-accent print:text-black" />
-                    <a href={`mailto:${resumeData.email}`} className="hover:text-accent transition-colors break-all">
+                    <a
+                      href={`mailto:${resumeData.email}`}
+                      className="hover:text-accent transition-colors break-all"
+                    >
                       {resumeData.email}
                     </a>
                   </div>
                   <div className="flex items-center gap-3 justify-center lg:justify-start print:justify-start">
                     <Phone className="h-4 w-4 shrink-0 text-accent print:text-black" />
-                    <a href={`tel:${resumeData.phone}`} className="hover:text-accent transition-colors">
+                    <a
+                      href={`tel:${resumeData.phone}`}
+                      className="hover:text-accent transition-colors"
+                    >
                       {resumeData.phone}
                     </a>
                   </div>
@@ -209,7 +219,10 @@ export default function Home() {
               </h2>
               <div className="mt-4 space-y-4 print:mt-2.5 print:space-y-3">
                 {resumeData.skills.map((category) => (
-                  <div key={category.category} className="space-y-2 print:space-y-1">
+                  <div
+                    key={category.category}
+                    className="space-y-2 print:space-y-1"
+                  >
                     <h3 className="text-xs font-semibold uppercase tracking-wider text-muted print:text-[10px]">
                       {category.category}
                     </h3>
@@ -219,11 +232,14 @@ export default function Home() {
                         return (
                           <button
                             key={skill}
-                            onClick={() => setSelectedTech(isSelected ? null : skill)}
-                            className={`rounded-md px-2 py-1 text-xs font-medium transition-all no-print select-none cursor-pointer hover:scale-105 ${isSelected
-                              ? "bg-accent text-white shadow-xs"
-                              : "bg-border/40 text-foreground hover:bg-border/80"
-                              }`}
+                            onClick={() =>
+                              setSelectedTech(isSelected ? null : skill)
+                            }
+                            className={`rounded-md px-2 py-1 text-xs font-medium transition-all no-print select-none cursor-pointer hover:scale-105 ${
+                              isSelected
+                                ? "bg-accent text-white shadow-xs"
+                                : "bg-border/40 text-foreground hover:bg-border/80"
+                            }`}
                           >
                             {skill}
                           </button>
@@ -240,39 +256,40 @@ export default function Home() {
             </div>
 
             {/* Certifications Card */}
-            {resumeData.certifications && resumeData.certifications.length > 0 && (
-              <div className="rounded-xl border border-card-border bg-card-bg p-6 print:p-0 print:border-none print:bg-transparent shadow-xs print-no-shadow print-no-border print-avoid-break">
-                <h2 className="flex items-center gap-2 border-b border-border pb-3 text-lg font-bold tracking-tight print:text-sm print:pb-1">
-                  <Award className="h-5 w-5 text-accent print:text-black print:h-4 print:w-4" />
-                  Certifications
-                </h2>
-                <div className="mt-4 space-y-4 print:mt-2.5 print:space-y-2">
-                  {resumeData.certifications.map((cert) => (
-                    <div key={cert.title} className="text-sm">
-                      <h3 className="font-semibold text-foreground print:text-xs">
-                        {cert.url ? (
-                          <a
-                            href={cert.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-accent transition-colors inline-flex items-center gap-1 group print-no-link-attr"
-                          >
-                            {cert.title}
-                            <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity no-print" />
-                          </a>
-                        ) : (
-                          cert.title
-                        )}
-                      </h3>
-                      <div className="flex justify-between text-xs text-muted mt-0.5 print:text-[10px]">
-                        <span>{cert.issuer}</span>
-                        <span>{cert.date}</span>
+            {resumeData.certifications &&
+              resumeData.certifications.length > 0 && (
+                <div className="rounded-xl border border-card-border bg-card-bg p-6 print:p-0 print:border-none print:bg-transparent shadow-xs print-no-shadow print-no-border print-avoid-break">
+                  <h2 className="flex items-center gap-2 border-b border-border pb-3 text-lg font-bold tracking-tight print:text-sm print:pb-1">
+                    <Award className="h-5 w-5 text-accent print:text-black print:h-4 print:w-4" />
+                    Certifications
+                  </h2>
+                  <div className="mt-4 space-y-4 print:mt-2.5 print:space-y-2">
+                    {resumeData.certifications.map((cert) => (
+                      <div key={cert.title} className="text-sm">
+                        <h3 className="font-semibold text-foreground print:text-xs">
+                          {cert.url ? (
+                            <a
+                              href={cert.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-accent transition-colors inline-flex items-center gap-1 group print-no-link-attr"
+                            >
+                              {cert.title}
+                              <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity no-print" />
+                            </a>
+                          ) : (
+                            cert.title
+                          )}
+                        </h3>
+                        <div className="flex justify-between text-xs text-muted mt-0.5 print:text-[10px]">
+                          <span>{cert.issuer}</span>
+                          <span>{cert.date}</span>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             {/* Languages Card */}
             {resumeData.languages && resumeData.languages.length > 0 && (
@@ -283,20 +300,25 @@ export default function Home() {
                 </h2>
                 <div className="mt-4 space-y-3 print:mt-2.5 print:space-y-1.5">
                   {resumeData.languages.map((lang) => (
-                    <div key={lang.language} className="flex items-center justify-between text-sm">
-                      <span className="font-medium text-foreground print:text-xs">{lang.language}</span>
-                      <span className="text-xs text-muted print:text-[10px]">{lang.proficiency}</span>
+                    <div
+                      key={lang.language}
+                      className="flex items-center justify-between text-sm"
+                    >
+                      <span className="font-medium text-foreground print:text-xs">
+                        {lang.language}
+                      </span>
+                      <span className="text-xs text-muted print:text-[10px]">
+                        {lang.proficiency}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
             )}
-
           </div>
 
           {/* RIGHT COLUMN: Profile, Experience, Projects, Education */}
           <div className="lg:col-span-8 print:col-span-8 space-y-8 print:space-y-6">
-
             {/* About / Summary Section */}
             {resumeData.summary && (
               <section className="rounded-xl border border-card-border bg-card-bg p-6 print:p-0 print:border-none print:bg-transparent shadow-xs print-no-shadow print-no-border">
@@ -318,7 +340,10 @@ export default function Home() {
 
               <div className="relative mt-6 border-l border-border pl-6 space-y-8 print:mt-4 print:pl-4 print:space-y-5">
                 {resumeData.experience.map((exp, idx) => (
-                  <div key={`${exp.company}-${idx}`} className="relative print-avoid-break">
+                  <div
+                    key={`${exp.company}-${idx}`}
+                    className="relative print-avoid-break"
+                  >
                     {/* Timeline Node */}
                     <span className="absolute -left-[31px] top-1.5 flex h-4.5 w-4.5 items-center justify-center rounded-full border-2 border-accent bg-background print:-left-[23px] print:h-3 print:w-3 print:border-black">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent print:bg-black print:h-1 print:w-1"></span>
@@ -354,11 +379,14 @@ export default function Home() {
                         return (
                           <button
                             key={tech}
-                            onClick={() => setSelectedTech(isSelected ? null : tech)}
-                            className={`rounded-md px-2 py-0.5 text-xs transition-all no-print select-none cursor-pointer ${isSelected
-                              ? "bg-accent text-white font-medium shadow-xs"
-                              : "bg-border/30 text-muted hover:bg-border/60"
-                              }`}
+                            onClick={() =>
+                              setSelectedTech(isSelected ? null : tech)
+                            }
+                            className={`rounded-md px-2 py-0.5 text-xs transition-all no-print select-none cursor-pointer ${
+                              isSelected
+                                ? "bg-accent text-white font-medium shadow-xs"
+                                : "bg-border/30 text-muted hover:bg-border/60"
+                            }`}
                           >
                             {tech}
                           </button>
@@ -459,11 +487,14 @@ export default function Home() {
                             return (
                               <button
                                 key={tech}
-                                onClick={() => setSelectedTech(isSelected ? null : tech)}
-                                className={`rounded-md px-1.5 py-0.5 text-[11px] transition-all no-print select-none cursor-pointer ${isSelected
-                                  ? "bg-accent text-white font-medium shadow-xs"
-                                  : "bg-border/30 text-muted hover:bg-border/60"
-                                  }`}
+                                onClick={() =>
+                                  setSelectedTech(isSelected ? null : tech)
+                                }
+                                className={`rounded-md px-1.5 py-0.5 text-[11px] transition-all no-print select-none cursor-pointer ${
+                                  isSelected
+                                    ? "bg-accent text-white font-medium shadow-xs"
+                                    : "bg-border/30 text-muted hover:bg-border/60"
+                                }`}
                               >
                                 {tech}
                               </button>
@@ -479,7 +510,9 @@ export default function Home() {
 
                   {filteredProjects.length === 0 && (
                     <div className="col-span-full flex flex-col items-center justify-center py-12 text-center border border-dashed border-border rounded-lg no-print">
-                      <p className="text-sm text-muted">No projects found matching the filter.</p>
+                      <p className="text-sm text-muted">
+                        No projects found matching the filter.
+                      </p>
                       <button
                         onClick={() => setSelectedTech(null)}
                         className="mt-3 text-sm font-semibold text-accent hover:underline cursor-pointer"
@@ -525,7 +558,6 @@ export default function Home() {
                 ))}
               </div>
             </section>
-
           </div>
         </div>
       </main>
@@ -533,13 +565,15 @@ export default function Home() {
       {/* Footer (Web Only) */}
       <footer className="no-print border-t border-border py-8 text-center text-xs text-muted bg-card-bg/30">
         <div className="mx-auto max-w-5xl px-4">
-          <p>© {new Date().getFullYear()} {resumeData.name}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {resumeData.name}. All rights reserved.
+          </p>
           <p className="mt-1">
-            Built with Next.js, Tailwind CSS and Lucide Icons. Print this page or click Ctrl+P to export as PDF.
+            Built with Next.js, Tailwind CSS and Lucide Icons. Print this page
+            or click Ctrl+P to export as PDF.
           </p>
         </div>
       </footer>
     </div>
   );
 }
-

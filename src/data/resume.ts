@@ -70,7 +70,7 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   name: "Thitipong Tapianthong",
   title: "Programmer / Network Engineer",
-  avatarUrl: "",
+  avatarUrl: "./profile.jpg",
   email: "thitipong.t@proton.me",
   phone: "(+66) 098-372-1725",
   location: "Prachinburi, Thailand",
