@@ -1,26 +1,26 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import {
-  Github,
-  Linkedin,
-  Twitter,
-  Globe,
-  Mail,
-  Phone,
-  MapPin,
   Award,
-  GraduationCap,
   Briefcase,
   Code,
-  Moon,
-  Sun,
-  Printer,
   ExternalLink,
-  X,
   FileJson,
   FileText,
+  Github,
+  Globe,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  MapPin,
+  Moon,
+  Phone,
+  Printer,
+  Sun,
+  Twitter,
+  X,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { resumeData } from "@/data/resume";
 
 export default function Home() {
@@ -204,6 +204,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <button
+              type="button"
               onClick={toggleTheme}
               className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card-bg text-foreground transition-all hover:bg-border/30 hover:scale-105 active:scale-95"
               aria-label="Toggle Dark Mode"
@@ -216,6 +217,7 @@ export default function Home() {
               )}
             </button>
             <button
+              type="button"
               onClick={handlePrint}
               className="flex h-9 gap-2 items-center justify-center rounded-lg border border-border bg-accent text-white px-3 text-sm font-medium transition-all hover:bg-accent/90 hover:scale-105 active:scale-95 shadow-xs"
               title="Print Resume (PDF)"
@@ -224,6 +226,7 @@ export default function Home() {
               <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
             <button
+              type="button"
               onClick={handleDownloadJSON}
               className="flex h-9 gap-2 items-center justify-center rounded-lg border border-border bg-card-bg text-foreground px-3 text-sm font-medium transition-all hover:bg-border/30 hover:scale-105 active:scale-95 shadow-xs"
               title="Download JSON (Machine Readable)"
@@ -232,6 +235,7 @@ export default function Home() {
               <span className="hidden md:inline">JSON</span>
             </button>
             <button
+              type="button"
               onClick={handleDownloadTXT}
               className="flex h-9 gap-2 items-center justify-center rounded-lg border border-border bg-card-bg text-foreground px-3 text-sm font-medium transition-all hover:bg-border/30 hover:scale-105 active:scale-95 shadow-xs"
               title="Download TXT (Plain Text)"
@@ -350,6 +354,7 @@ export default function Home() {
                         const isSelected = selectedTech === skill;
                         return (
                           <button
+                            type="button"
                             key={skill}
                             onClick={() =>
                               setSelectedTech(isSelected ? null : skill)
@@ -484,8 +489,8 @@ export default function Home() {
                     </div>
 
                     <ul className="mt-4 list-disc space-y-2 pl-4 text-sm text-muted print:mt-2 print:space-y-1 print:text-[11px]">
-                      {exp.description.map((bullet, bIdx) => (
-                        <li key={bIdx} className="leading-relaxed">
+                      {exp.description.map((bullet) => (
+                        <li key={bullet} className="leading-relaxed">
                           {bullet}
                         </li>
                       ))}
@@ -497,6 +502,7 @@ export default function Home() {
                         const isSelected = selectedTech === tech;
                         return (
                           <button
+                            type="button"
                             key={tech}
                             onClick={() =>
                               setSelectedTech(isSelected ? null : tech)
@@ -534,6 +540,7 @@ export default function Home() {
                     <div className="no-print flex items-center gap-2 rounded-full bg-accent-muted px-3 py-1 text-xs font-semibold text-accent">
                       <span>Filtering: {selectedTech}</span>
                       <button
+                        type="button"
                         onClick={() => setSelectedTech(null)}
                         className="rounded-full hover:bg-accent/20 p-0.5 transition-colors cursor-pointer"
                         title="Clear Filter"
@@ -605,6 +612,7 @@ export default function Home() {
                             const isSelected = selectedTech === tech;
                             return (
                               <button
+                                type="button"
                                 key={tech}
                                 onClick={() =>
                                   setSelectedTech(isSelected ? null : tech)
@@ -633,6 +641,7 @@ export default function Home() {
                         No projects found matching the filter.
                       </p>
                       <button
+                        type="button"
                         onClick={() => setSelectedTech(null)}
                         className="mt-3 text-sm font-semibold text-accent hover:underline cursor-pointer"
                       >

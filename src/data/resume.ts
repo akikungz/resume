@@ -126,11 +126,27 @@ export const resumeData: ResumeData = {
     {
       institution: "King Mongkut's University of Technology North Bangkok",
       degree: "Bachelor of Engineering in Information and Network Engineering",
-      period: "2022 - 2025",
+      period: "2022 - 2026",
       location: "Prachinburi, Thailand",
     },
   ],
   projects: [
+    {
+      title: "Portfolio & Resume Website",
+      period: "2026",
+      description:
+        "A highly optimized, responsive portfolio and resume web application featuring smooth theme toggling and print-ready stylesheets. Architected with type-safe JSON data binding to ensure maintainability and compiled for edge delivery.",
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "TypeScript",
+        "Biome",
+        "Cloudflare Pages",
+      ],
+      githubUrl: "https://github.com/akikungz/resume",
+      liveUrl: "https://resume.akikungz.uk",
+    },
     {
       title:
         "Cluster-Based Platform for Supporting Teaching and Academic Activities in the Department of Information Technology",
@@ -162,7 +178,7 @@ export const resumeData: ResumeData = {
       category: "Frameworks & Libraries",
       skills: [
         "React",
-        "Next.js (App Router)",
+        "Next.js",
         "Node.js",
         "Express",
         "ElysiaJS",
